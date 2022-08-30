@@ -5,16 +5,34 @@ import Redirect from '../components/Redirect'
 function MRouter(props) {
   const element=useRoutes([
     {
-      path:'/home',
-      element:LazyLoad('sandbox/home/Home')
-    },
-    {
       path:'/login',
       element:LazyLoad('login/Login')
     },
     {
       path:'/',
-      element:<Redirect to='/home'/>
+      element:LazyLoad('sandbox/NewsSanBox'),
+      children:[
+        {
+          path:'',
+          element:<Redirect to='/home'/>
+        },
+        {
+          path:'/home',
+          element:LazyLoad('sandbox/home/Home')
+        },
+        {
+          path:'/user-manage/list',
+          element:LazyLoad('sandbox/user-manage/UserList')
+        },
+        {
+          path:'/right-manage/role/list',
+          element:LazyLoad('sandbox/right-manage/RoleList')
+        },
+        {
+          path:'/right-manage/right/list',
+          element:LazyLoad('sandbox/right-manage/RightList')
+        },
+      ]
     },
     {
       path:'*',

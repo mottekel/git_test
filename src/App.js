@@ -7,7 +7,6 @@ import MRouter from './router';
 function App() {
   return (
     <HashRouter>
-      
       <MRouter></MRouter>
     </HashRouter>
   );
