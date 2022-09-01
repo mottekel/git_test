@@ -6,6 +6,7 @@ const MyLayout = styled(Layout)`
   background: #fff;
 }
 .trigger {
+  float: left;
   padding: 0 24px;
   font-size: 18px;
   line-height: 64px;
@@ -13,7 +14,6 @@ const MyLayout = styled(Layout)`
   transition: color 0.3s;
   &:hover {
     color: #1890ff;
-    background: red;
   }
 } 
 `

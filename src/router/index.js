@@ -35,6 +35,10 @@ function MRouter(props) {
       ]
     },
     {
+      path:'/test',
+      element:LazyLoad('Test')
+    },
+    {
       path:'*',
       element:LazyLoad('notfound/NotFound')
     }
