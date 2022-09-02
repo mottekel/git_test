@@ -1,46 +1,40 @@
+import { Spin } from 'antd';
 import React, { lazy, Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
 import Redirect from '../components/Redirect'
 
 function MRouter(props) {
-  const element=useRoutes([
+  const element = useRoutes([
     {
-      path:'/login',
-      element:LazyLoad('login/Login')
+      path: '/login',
+      element: LazyLoad('login/Login')
     },
     {
-      path:'/',
-      element:LazyLoad('sandbox/NewsSanBox'),
-      children:[
+      path: '/news',
+      // element: LazyLoad('news/home/Home'),
+      element: LazyLoad('news/News'),
+      children: [
         {
-          path:'',
-          element:<Redirect to='/home'/>
+          path: '',
+          element: <Redirect to='/news/home' />
         },
         {
-          path:'/home',
-          element:LazyLoad('sandbox/home/Home')
-        },
-        {
-          path:'/user-manage/list',
-          element:LazyLoad('sandbox/user-manage/UserList')
-        },
-        {
-          path:'/right-manage/role/list',
-          element:LazyLoad('sandbox/right-manage/RoleList')
-        },
-        {
-          path:'/right-manage/right/list',
-          element:LazyLoad('sandbox/right-manage/RightList')
-        },
+          path: 'home',
+          element: LazyLoad('news/home/Home')
+        }
       ]
     },
     {
-      path:'/test',
-      element:LazyLoad('Test')
+      path: '/test',
+      element: LazyLoad('Test')
     },
     {
-      path:'*',
-      element:LazyLoad('notfound/NotFound')
+      path: '/',
+      element: <Redirect to='/news/home' />,
+    },
+    {
+      path: '*',
+      element: LazyLoad('notfound/NotFound')
     }
   ])
 
@@ -51,7 +45,18 @@ function MRouter(props) {
 const LazyLoad = (path) => {
   const Comp = lazy(() => import(`../views/${path}`))
   return (
-    <Suspense fallback={<div>加载中...</div>}>
+    <Suspense fallback={<div style={{
+      width:'100%',
+      height: '100%',
+      background: '#ccc'
+    }}>
+      <Spin style={{
+      position: 'absolute',
+      left: '50%',
+      top: "50%",
+      transform: ' translate(-50%,-50%)'
+    }}></Spin>
+    </div>}>
       <Comp />
     </Suspense>
   )

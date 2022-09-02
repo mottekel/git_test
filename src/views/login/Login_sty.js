@@ -16,40 +16,6 @@ animation: gradient 15s ease infinite;
 }
 }
 `
-const LDiv=styled.div`
-  position: absolute;
-  left: 50%;
-  height: 50%;
-  transform: translate(-50%,50%);
-  width: 500px;
-  height: 300px;
-  ${back};
-  box-shadow: 20px 20px 60px #d5caca,
-            -20px -20px 60px #fff;
-  border-radius:20px;
-  font-family: 'Gochi Hand', cursive;
-  .tit{
-    letter-spacing: 10px;
-    padding-top: 24px;
-    font-size: 26px;
-    font-family:'Hanalei Fill', cursive;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .inp{
-    width: 300px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    Button{
-      letter-spacing: 5px;
-      font-size: 12px;
-      font-family:'Hanalei Fill', cursive;
-    }
-  }
-`
 
 const Div = styled.div`
 font-family: 'Hanalei Fill', cursive;
@@ -95,6 +61,40 @@ p {
     animation: rotate 10s infinite .5s linear;
   }
 }
+.ldiv{
+  position: absolute;
+  left: 50%;
+  height: 50%;
+  transform: translate(-50%,50%);
+  width: 500px;
+  height: 300px;
+  ${back};
+  box-shadow: 20px 20px 60px #d5caca,
+            -20px -20px 60px #fff;
+  border-radius:20px;
+  font-family: 'Gochi Hand', cursive;
+  .tit{
+    letter-spacing: 10px;
+    padding-top: 24px;
+    font-size: 26px;
+    font-family:'Hanalei Fill', cursive;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .inp{
+    width: 250px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    Button{
+      letter-spacing: 5px;
+      font-size: 12px;
+      font-family:'Hanalei Fill', cursive;
+    }
+  }
+}
 
 @keyframes rotate {
   0% {
@@ -105,4 +105,4 @@ p {
   }
 }
 `
-export {LDiv,Div}
+export {Div}
