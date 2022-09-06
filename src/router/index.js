@@ -11,7 +11,6 @@ function MRouter(props) {
     },
     {
       path: '/news',
-      // element: LazyLoad('news/home/Home'),
       element: LazyLoad('news/News'),
       children: [
         {
@@ -21,7 +20,23 @@ function MRouter(props) {
         {
           path: 'home',
           element: LazyLoad('news/home/Home')
-        }
+        },
+        {
+          path: 'articles',
+          element: LazyLoad('news/articles/Articles')
+        },
+        {
+          path: 'favorites',
+          element: LazyLoad('news/favorites/Favorites')
+        },
+        {
+          path: 'comments',
+          element: LazyLoad('news/comments/Comments')
+        },
+        {
+          path: 'journey',
+          element: LazyLoad('news/journey/Journey')
+        },
       ]
     },
     {
@@ -46,16 +61,17 @@ const LazyLoad = (path) => {
   const Comp = lazy(() => import(`../views/${path}`))
   return (
     <Suspense fallback={<div style={{
-      width:'100%',
+      width: '100%',
       height: '100%',
-      background: '#ccc'
+      background: '#ccc',
+      opacity: 0.5,
     }}>
       <Spin style={{
-      position: 'absolute',
-      left: '50%',
-      top: "50%",
-      transform: ' translate(-50%,-50%)'
-    }}></Spin>
+        position: 'absolute',
+        left: '50%',
+        top: "50%",
+        transform: ' translate(-50%,-50%)'
+      }}></Spin>
     </div>}>
       <Comp />
     </Suspense>

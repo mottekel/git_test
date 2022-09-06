@@ -35,7 +35,7 @@ function Login(props) {
   }
 
   return (
-    Logintran((styles, item) => item && <animated.div style={{...styles,height:'100%'}}>
+    Logintran((styles, item) => item && <animated.div style={{ ...styles, height: '100%' }}>
       <Div onClick={handlerVis}>
         {
           transitions(({ opacity }, item) =>
@@ -50,6 +50,7 @@ function Login(props) {
             ) : (
               <animated.div
                 style={{
+                  margin: 'auto',
                   opacity: opacity.to({ range: [1.0, 0.0], output: [1, 0] }),
                 }} onClick={(e) => e.stopPropagation()}>
                 <div className='ldiv'>

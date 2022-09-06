@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {Layout } from 'antd';
+import { Layout } from 'antd';
 
 const MyLayout = styled(Layout)`
 font-family:'Hanalei Fill', cursive;
@@ -13,6 +13,8 @@ Header{
 float: left;
 width: 50px;
 height: 50px;
+margin-right: 30px;
+margin-left: 30px;
 }
 .site-layout .site-layout-background {
   background: #fff;
@@ -20,13 +22,18 @@ height: 50px;
 .site-layout{
   padding: 0 20px;
   margin-top:80px;
+  min-width: 1200px;
 }
 .site-layout-background{
   padding: 24px;
-  min-height:500px;
+  /* height: 90%; */
+  min-height:88%;
 }
 .footer{
   text-align: center;
+}
+.ant-layout-header {
+  min-width: 1200px;
 }
 `
 export default MyLayout

@@ -65,7 +65,7 @@ p {
   position: absolute;
   left: 50%;
   height: 50%;
-  transform: translate(-50%,50%);
+  transform: translate(-50%,-50%);
   width: 500px;
   height: 300px;
   ${back};
@@ -105,4 +105,4 @@ p {
   }
 }
 `
-export {Div}
+export { Div }
