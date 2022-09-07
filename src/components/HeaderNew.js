@@ -1,4 +1,4 @@
-import { Menu, Space, Input, Button, Avatar, Dropdown } from 'antd';
+import { Menu, Space, Input, Avatar, Dropdown } from 'antd';
 import {
   UserOutlined,
   HomeOutlined,
@@ -44,13 +44,12 @@ function HeaderNew(props) {
         onClick={({ key }) => {
           navigate(key);
         }}
-        style={{ width: "700px" }}
+        style={{ width: "850px" }}
         mode="horizontal"
         items={items}
       />
       <Search allowClear placeholder='search' enterButton
         style={{ float: 'left', width: '300px' }} />
-      <Button style={{ marginLeft: '30px' }}>write</Button>
       <Dropdown overlay={menu}>
         <Avatar src={show1} size='large' style={{ background: 'red', marginLeft: '30px' }}></Avatar>
       </Dropdown>
@@ -71,6 +70,7 @@ const items = [
   getItem('articles', '/news/articles', <ReadOutlined />,),
   getItem('favorites', '/news/favorites', <HeartOutlined />,),
   getItem('comments', '/news/comments', <CommentOutlined />,),
+  getItem('write', '/news/write', <CommentOutlined />,),
   getItem('journey', '/news/journey', <SendOutlined />,),
   getItem('Mine', '/news/mine', <UserOutlined />,),
 ]

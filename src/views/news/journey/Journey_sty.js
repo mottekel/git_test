@@ -9,7 +9,6 @@ const Div = styled.div`
    bottom: 0;
    transform: translate(-50%)
   }
-
 `
 
 export default Div

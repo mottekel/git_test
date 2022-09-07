@@ -37,6 +37,10 @@ function MRouter(props) {
           path: 'journey',
           element: LazyLoad('news/journey/Journey')
         },
+        {
+          path: 'write',
+          element: LazyLoad('news/write/Write')
+        },
       ]
     },
     {

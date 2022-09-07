@@ -1,13 +1,11 @@
 import React from 'react';
 
-function Test(props) {
-
+const Test = () => {
   return (
-   <div>
-     <div>4545.test</div>
-   </div>
-  )
-}
-
+    <div>
+      test
+    </div>
+  );
+};
 
 export default Test;
