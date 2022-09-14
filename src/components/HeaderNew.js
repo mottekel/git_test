@@ -18,11 +18,11 @@ function HeaderNew(props) {
   const navigate = useNavigate()
   const location = useLocation()
   const menu = (<Menu
-    onClick={({ key }) => { navigate(key) }}
+    onClick={({ key }) => handleRouter(key)}
     style={{ fontFamily: "'Hanalei Fill', cursive" }}
     items={[
       {
-        key: '/',
+        key: '/news/home',
         label: 'mine'
       },
       {
@@ -32,6 +32,13 @@ function HeaderNew(props) {
       },
     ]}
   />)
+  //路由导航跳转
+  const handleRouter = (key) => {
+    if (key === location.pathname) {
+      return
+    }
+    navigate(key);
+  }
 
   return (
     <Space align='center' size='large'>
@@ -41,9 +48,7 @@ function HeaderNew(props) {
       <Menu
         selectedKeys={[location.pathname]}
         defaultSelectedKeys={['/news/home']}
-        onClick={({ key }) => {
-          navigate(key);
-        }}
+        onClick={({ key }) => handleRouter(key)}
         style={{ width: "850px" }}
         mode="horizontal"
         items={items}
