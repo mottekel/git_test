@@ -1,4 +1,6 @@
-import { Button, Input } from 'antd';
+import { Button, Input, message } from 'antd';
+// import axios from 'axios';
+import http from '../../plugins/http'
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { animated, useTransition, } from 'react-spring';
@@ -7,6 +9,9 @@ import { Div } from './Login_sty'
 function Login(props) {
   const [toggle, set] = useState(true)
   const [show, setshow] = useState(true)
+  //用户名
+  const [uname, setuname] = useState('')
+  const [upassword, setupassword] = useState('')
   const navigate = useNavigate()
   //过渡
   const transitions = useTransition(toggle, {
@@ -27,9 +32,19 @@ function Login(props) {
   const handlerVis = (e) => set(!toggle)
 
   //登录
-  const handlerLogin = () => {
+  const handleUname = (e) => {
+    setuname(e.target.value)
+  }
+  const handleUpassword = (e) => {
+    setupassword(e.target.value)
+  }
+  const handlerLogin = async () => {
+    const data = { uname, upassword }
+    const res = await http.post('login', data)
     setshow(!show)
     setTimeout(() => {
+      localStorage.token = res.data.token
+      message.success(res.data.message)
       navigate('/news')
     }, 1000);
   }
@@ -58,8 +73,14 @@ function Login(props) {
                     🤗
                   </div>
                   <div className='inp'>
-                    <Input placeholder='Name' allowClear style={{ marginBottom: '40px' }}></Input>
-                    <Input.Password placeholder='Password' allowClear style={{ marginBottom: '40px' }}></Input.Password>
+                    <Input placeholder='Name' allowClear
+                      style={{ marginBottom: '40px' }}
+                      onChange={(e) => handleUname(e)}>
+                    </Input>
+                    <Input.Password placeholder='Password' allowClear
+                      style={{ marginBottom: '40px' }}
+                      onChange={(e) => handleUpassword(e)}>
+                    </Input.Password>
                     <Button onClick={handlerLogin}>LOGIN</Button>
                   </div>
                 </div>

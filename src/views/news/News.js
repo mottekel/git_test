@@ -1,14 +1,14 @@
 import React from 'react';
 import MyLayout from './News_sty';
-import {Layout } from 'antd';
+import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 import HeaderNew from '../../components/HeaderNew';
-const { Header, Content ,Footer} = Layout;
+const { Header, Content, Footer } = Layout;
 
 function News(props) {
   return (
     <MyLayout>
-      <Header>
+      <Header className='header'>
         <HeaderNew></HeaderNew>
       </Header>
       <Content className="site-layout">

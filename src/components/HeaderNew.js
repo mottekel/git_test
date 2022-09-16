@@ -1,4 +1,4 @@
-import { Menu, Space, Input, Avatar, Dropdown } from 'antd';
+import { Menu, Space, Input, Avatar, Dropdown, message } from 'antd';
 import {
   UserOutlined,
   HomeOutlined,
@@ -36,6 +36,10 @@ function HeaderNew(props) {
   const handleRouter = (key) => {
     if (key === location.pathname) {
       return
+    }
+    if (key === '/login') {
+      message.error('退出登录')
+      localStorage.removeItem('token')
     }
     navigate(key);
   }

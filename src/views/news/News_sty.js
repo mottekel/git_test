@@ -35,5 +35,8 @@ margin-left: 30px;
 .ant-layout-header {
   min-width: 1200px;
 }
+.header{
+  z-index: 2;
+}
 `
 export default MyLayout
