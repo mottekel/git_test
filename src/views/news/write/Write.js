@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
+import { UploadOutlined } from '@ant-design/icons';
 import { Editor } from '@tinymce/tinymce-react'
 import Input from 'antd/lib/input/Input';
-import { Button } from 'antd';
+import { Button, Upload } from 'antd';
 
 function Write(props) {
   const editorRef = useRef(null);
@@ -12,8 +13,11 @@ function Write(props) {
   };
   return (
     <div style={{ minHeight: '520px' }}>
-      <Input placeholder='title'></Input>
-      <Input placeholder='summary'></Input>
+      <Input placeholder='title'></Input><br /><br />
+      <Input placeholder='summary'></Input><br /><br />
+      <Upload action='http://localhost:4000/article' maxCount={1}>
+        <Button icon={<UploadOutlined />}>Upload</Button>
+      </Upload><br />
       <Editor
         apiKey='qigktpzij16hvppe0tspnip71icwe9qqoxo1sowaxlcvutmd'
         onInit={(evt, editor) => editorRef.current = editor}
